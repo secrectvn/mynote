@@ -1,0 +1,111 @@
+rsync -avzhe ssh root@45.77.42.32:/home/huutan/masternode1/ /mnt/d/masternode/masternode1/
+
+
+9u#N3AnF=fD}oS#n
+
+
+
+
+rsync -avzhe ssh root@45.77.35.193:/home/huutan/masternode2/ /mnt/d/masternode/masternode2/
+
+2A.s$7TX$qh]Zp,S
+
+
+
+rsync -avzhe ssh root@45.77.245.101:/home/huutan/masternode3/ /mnt/d/masternode/masternode3/
+
+mZ5[ndM_C-[n%KCd
+
+
+rsync -avzhe ssh root@45.76.186.26:/home/huutan/masternode4/ /mnt/d/masternode/masternode4/
+Em_8GXC6)mJr,,n%
+
+rsync -avzhe ssh root@207.148.90.104:/home/huutan/masternode5/ /mnt/d/masternode/masternode5/
+
+xZ@1TFqhHuLM@q@d
+
+
+rsync -avzhe ssh root@45.32.122.205:/root/masternode/ /mnt/d/masternode/masternode6/
+
+2h=RKnj1[oghp5h{
+
+rsync -avzhe ssh root@45.77.35.193:/home/huutan/masternode2/ /mnt/d/masternode/masternode2/
+
+2A.s$7TX$qh]Zp,S
+
+#!/bin/bash
+curl https://raw.githubusercontent.com/secrectvn/masternode/master/masternode-cli.sh | sh ;
+echo -e "thiendiavocuc\nthiendiavocuc" | adduser huutan ;
+echo 'huutan ALL=(ALL)   ALL' >> /etc/sudoers ;
+echo -e "thiendiavocuc\nthiendiavocuc" | adduser huutan ;
+mkdir -p /home/huutan/masternode/{beetle,havecoin,shekel,mnxc2,reliefproject,ganjaproject,gainercoin,vantaur} ;
+
+
+
+
+
+
+#--HAVE Coin
+/home/huutan/masternode/havecoind --datadir=/home/huutan/masternode/havecoin/ ;
+sleep 5;
+/home/huutan/masternode/havecoind --datadir=/home/huutan/masternode/havecoin/ masternode start 76710095 ;
+/home/huutan/masternode/havecoind --datadir=/home/huutan/masternode/havecoin/ walletpassphrase 76710095 999999 ;
+
+
+
+#--GAINER Coin
+/home/huutan/masternode/gainercoind --datadir=/home/huutan/masternode/gainercoin/
+sleep 5 ; 
+/home/huutan/masternode/gainercoind --datadir=/home/huutan/masternode/gainercoin/ masternode start 76710095
+/home/huutan/masternode/gainercoind --datadir=/home/huutan/masternode/gainercoin/ walletpassphrase 76710095 999999
+
+#--Shekel Coin
+/home/huutan/masternode/shekeld --datadir=/home/huutan/masternode/shekel/
+/home/huutan/masternode/shekel-cli --datadir=/home/huutan/masternode/shekel/ walletpassphrase 76710095 999999
+/home/huutan/masternode/shekel-cli --datadir=/home/huutan/masternode/shekel/ masternode start 76710095
+/home/huutan/masternode/shekel-cli --datadir=/home/huutan/masternode/shekel/ masternode status
+/home/huutan/masternode/shekel-cli --datadir=/home/huutan/masternode/shekel/ getstakingstatus
+
+
+/home/huutan/masternode/shekel-cli --datadir=/home/huutan/masternode/shekel/ masternodeconnect 207.148.122.89:5500
+
+
+#kiem tra masternode 
+
+echo "havecoind" | bash kiemtra.sh
+
+echo "gainercoind" | bash kiemtra.sh
+
+echo "reliefd" | bash start.sh
+
+echo "beetled" | bash start.sh
+echo "beetled" | bash kiemtra.sh
+
+echo "mnxcd" | bash kiemtra.sh
+
+/home/huutan/masternode/reliefd --datadir=/home/huutan/masternode/relief/ getstakinginfo ;
+
+
+
+read coin
+folder=$(echo -n $coin | head -c -1)
+/home/huutan/masternode/$coin --datadir=/home/huutan/masternode/$folder/ masternode debug ;
+/home/huutan/masternode/$coin --datadir=/home/huutan/masternode/$folder/ masternode status ;
+/home/huutan/masternode/$coin --datadir=/home/huutan/masternode/$folder/ getstakinginfo ;
+
+
+
+/home/huutan/masternode/gainercoind --datadir=/home/huutan/masternode/gainercoin/ masternode status ;
+/home/huutan/masternode/gainercoind --datadir=/home/huutan/masternode/gainercoin/ getstakinginfo ;
+
+
+
+#khoi dong
+read coin
+folder=$(echo -n $coin | head -c -1)
+/home/huutan/masternode/$coin --datadir=/home/huutan/masternode/$folder/ ;
+sleep 5;
+/home/huutan/masternode/$coin --datadir=/home/huutan/masternode/$folder/ masternode start 76710095 ;
+/home/huutan/masternode/$coin --datadir=/home/huutan/masternode/$folder/ walletpassphrase 76710095 999999 ;
+/home/huutan/masternode/$coin --datadir=/home/huutan/masternode/$folder/ masternode status ;
+/home/huutan/masternode/$coin --datadir=/home/huutan/masternode/$folder/ getstakinginfo ;
