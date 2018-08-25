@@ -1,0 +1,33 @@
+2018-08-25 07:22:30 (56.8 MB/s) - ‘/etc/profile.d/cyberpanel.sh’ saved [1066/1066]
+
+###################################################################
+                CyberPanel Successfully Installed                  
+                                                                   
+                Current RAM  usage : 192/1790MB (10.73%)                         
+                Current Disk usage : 3/40GB (10%)                        
+                Installation time  : 0 hrs 15 min 29 sec                      
+                                                                   
+                Visit: https://139.99.47.133:8090                     
+          Panel username: admin     Panel password: 1234567        
+          Mysql username: root      Mysql password: 6M8cL9KyVmAtM4   
+            Please change your default admin password              
+                                                                   
+                  Version 1.7 has some major changes               
+                 Must read: http://go.cyberpanel.net/1-7           
+                                                                   
+          If you change mysql password, please  modify file in     
+         /etc/cyberpanel/mysqlPassword with new password as well   
+                                                                   
+          OpenLiteSpeed WebAdmin Console default:                                    
+            Username: admin     Password: 123456                   
+                Visit: https://139.99.47.133:7080                     
+           By default port 7080 is blocked by firewall             
+        It is highly recommended to change default confidential    
+         By this command: /usr/local/lsws/admin/misc/admpass.sh    
+                                                                   
+              Website : https://www.cyberpanel.net                 
+              Forums  : https://forums.cyberpanel.net              
+              Wikipage: https://docs.cyberpanel.net                
+                                                                   
+            Enjoy your accelerated Internet by                  
+                CyberPanel & OpenLiteSpeed                      
